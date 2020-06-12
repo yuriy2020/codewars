@@ -1,4 +1,4 @@
 ## codewars
 ## Some of my codewars solutions
 
-[CodeWars](https://www.codewars.com/users/yuriy8888)
+[ My CodeWars Profile](https://www.codewars.com/users/yuriy8888)
