@@ -1,4 +1,4 @@
-# codewars
-Some of my codewars solutions
+## codewars
+## Some of my codewars solutions
 
-https://www.codewars.com/users/yuriy8888
+[CodeWars](https://www.codewars.com/users/yuriy8888)
