@@ -6,16 +6,16 @@ function formatDuration(seconds) {
   if (seconds >= 60) {
     minutes = Math.floor(seconds / 60);
     seconds = seconds % 60;
-    time = `${minutes} minutes and ${seconds} seconds`;
-  } else {
-    time += `${seconds} seconds`;
   }
   if (minutes >= 60) {
     hours = Math.floor(minutes / 60);
-		minutes = (minutes % 60);
-    time = `${hours} hours, ${minutes} minutes and ${seconds} seconds`
+    minutes = minutes % 60;
   }
+
+	let sec = seconds === 1 ? "second" : "seconds";
+	let min = minutes === 1 ? "minute" : "minutes";
+	time=`${minutes} ${min} ${seconds} ${sec}`
   return time;
 }
 
-console.log(formatDuration(62)); //, "1 minute and 2 seconds"););
+console.log(formatDuration(33)); //, "1 minute and 2 seconds"););
