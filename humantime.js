@@ -14,8 +14,8 @@ function formatDuration(seconds) {
   if (hours >= 24) {
     days = Math.floor(hours / 24);
     hours = hours % 24;
-	}
-	if (days >= 365) {
+  }
+  if (days >= 365) {
     years = Math.floor(days / 365);
     days = days % 365;
   }
@@ -25,9 +25,25 @@ function formatDuration(seconds) {
   let h = hours === 1 ? "hour" : "hours";
   let d = days === 1 ? "day" : "days";
   let y = years === 1 ? "year" : "years";
-  time = `${years} ${y} ${days} ${d} ${hours} ${h} ${minutes} ${min} ${seconds} ${sec}`;
+  let and = "and";
+  let comma = ",";
+  if (hours > 0 && minutes > 0) comma = ", ";
+
+  if (seconds !== 0) time = `${seconds} ${sec}`;
+  if (seconds === 0) and = "";
+	if (minutes !== 0) time = `${minutes} ${min} ${and} ${time}`;
+  if (hours !== 0) time = `${hours} ${h}, ` + time;
+  if (days !== 0) time = `${days} ${d}, ` + time;
+  if (years !== 0) time = `${years} ${y}, ` + time;
   return time;
 }
 
-console.log(formatDuration(100000000)); //, "1 minute and 2 seconds"););
-console.log(formatDuration(30)); //, "1 minute and 2 seconds"););
+console.log(formatDuration(100000000));
+console.log(formatDuration(1000000));
+console.log(formatDuration(10000));
+console.log(formatDuration(3601));
+
+console.log(formatDuration(1000));
+console.log(formatDuration(120));
+console.log(formatDuration(10));
+console.log(formatDuration(0));
