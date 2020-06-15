@@ -14,14 +14,20 @@ function formatDuration(seconds) {
   if (hours >= 24) {
     days = Math.floor(hours / 24);
     hours = hours % 24;
+	}
+	if (days >= 365) {
+    years = Math.floor(days / 365);
+    days = days % 365;
   }
 
   let sec = seconds === 1 ? "second" : "seconds";
   let min = minutes === 1 ? "minute" : "minutes";
   let h = hours === 1 ? "hour" : "hours";
   let d = days === 1 ? "day" : "days";
-  time = `${days} ${d} ${hours} ${h} ${minutes} ${min} ${seconds} ${sec}`;
+  let y = years === 1 ? "year" : "years";
+  time = `${years} ${y} ${days} ${d} ${hours} ${h} ${minutes} ${min} ${seconds} ${sec}`;
   return time;
 }
 
-console.log(formatDuration(10000000)); //, "1 minute and 2 seconds"););
+console.log(formatDuration(100000000)); //, "1 minute and 2 seconds"););
+console.log(formatDuration(30)); //, "1 minute and 2 seconds"););
