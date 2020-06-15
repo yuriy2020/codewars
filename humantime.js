@@ -11,11 +11,17 @@ function formatDuration(seconds) {
     hours = Math.floor(minutes / 60);
     minutes = minutes % 60;
   }
+  if (hours >= 24) {
+    days = Math.floor(hours / 24);
+    hours = hours % 24;
+  }
 
-	let sec = seconds === 1 ? "second" : "seconds";
-	let min = minutes === 1 ? "minute" : "minutes";
-	time=`${minutes} ${min} ${seconds} ${sec}`
+  let sec = seconds === 1 ? "second" : "seconds";
+  let min = minutes === 1 ? "minute" : "minutes";
+  let h = hours === 1 ? "hour" : "hours";
+  let d = days === 1 ? "day" : "days";
+  time = `${days} ${d} ${hours} ${h} ${minutes} ${min} ${seconds} ${sec}`;
   return time;
 }
 
-console.log(formatDuration(33)); //, "1 minute and 2 seconds"););
+console.log(formatDuration(10000000)); //, "1 minute and 2 seconds"););
