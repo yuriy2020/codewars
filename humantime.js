@@ -25,23 +25,29 @@ function formatDuration(seconds) {
   let h = hours === 1 ? "hour" : "hours";
   let d = days === 1 ? "day" : "days";
   let y = years === 1 ? "year" : "years";
-  let and = "and";
+  let and = " and";
   let comma = ",";
   if (hours > 0 && minutes > 0) comma = ", ";
 
-  if (seconds !== 0) time = `${seconds} ${sec}`;
+  if (seconds) time = `${seconds} ${sec}`;
   if (seconds === 0) and = "";
-	if (minutes !== 0) time = `${minutes} ${min} ${and} ${time}`;
-  if (hours !== 0) time = `${hours} ${h}, ` + time;
-  if (days !== 0) time = `${days} ${d}, ` + time;
-  if (years !== 0) time = `${years} ${y}, ` + time;
+  if (minutes) time = `${minutes} ${min}${and} ${time}`;
+  if (minutes === 0 && (seconds !== 0 || hours !== 0)) comma = " and ";
+  if (minutes === 0 && seconds === 0) comma = "";
+  if (hours) time = `${hours} ${h}${comma}${time}`;
+  if (days) time = `${days} ${d}${comma}${time}`;
+  if (years) time = `${years} ${y}${comma}${time}`;
+
+  // time= `${years} ${y}${comma} ${days} ${d}${comma} ${hours} ${h}${comma} ${minutes} ${min}${and} ${seconds} ${sec}`
+
   return time;
 }
 
 console.log(formatDuration(100000000));
 console.log(formatDuration(1000000));
-console.log(formatDuration(10000));
+console.log(formatDuration(172820));
 console.log(formatDuration(3601));
+console.log(formatDuration(3600));
 
 console.log(formatDuration(1000));
 console.log(formatDuration(120));
